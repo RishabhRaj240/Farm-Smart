@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
@@ -28,8 +34,8 @@ const AIAdvisor = () => {
 
     try {
       const { data, error } = await supabase.functions.invoke("plant-advisor", {
-        body: { 
-          messages: [...messages, userMessage]
+        body: {
+          messages: [...messages, userMessage],
         },
       });
 
@@ -40,10 +46,12 @@ const AIAdvisor = () => {
         content: data.response,
       };
       setMessages((prev) => [...prev, assistantMessage]);
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const description =
+        error instanceof Error ? error.message : "Failed to get AI response";
       toast({
         title: "Error",
-        description: error.message || "Failed to get AI response",
+        description,
         variant: "destructive",
       });
     } finally {
@@ -75,7 +83,9 @@ const AIAdvisor = () => {
             <div className="flex flex-col items-center justify-center h-full text-center text-muted-foreground">
               <Sparkles className="h-12 w-12 mb-4 text-primary/50" />
               <p className="text-lg font-medium">Ask me anything!</p>
-              <p className="text-sm mt-2">I can help with plant diseases, medicines, and farming tips</p>
+              <p className="text-sm mt-2">
+                I can help with plant diseases, medicines, and farming tips
+              </p>
             </div>
           ) : (
             <div className="space-y-4">
@@ -93,7 +103,9 @@ const AIAdvisor = () => {
                         : "bg-muted"
                     }`}
                   >
-                    <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                    <p className="text-sm whitespace-pre-wrap">
+                      {message.content}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -117,7 +129,11 @@ const AIAdvisor = () => {
             disabled={loading}
             className="min-h-[60px]"
           />
-          <Button onClick={sendMessage} disabled={loading || !input.trim()} size="icon">
+          <Button
+            onClick={sendMessage}
+            disabled={loading || !input.trim()}
+            size="icon"
+          >
             {loading ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
