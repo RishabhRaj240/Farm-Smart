@@ -121,7 +121,7 @@ const Index = () => {
       >
         {/* Background image from public folder with soft gradient overlay for text contrast */}
         <div
-          className={`absolute inset-0 z-0 pointer-events-none bg-[url('/gradient-3.jpg')] bg-cover bg-center bg-no-repeat transition-transform duration-[2000ms] ease-out ${
+          className={`absolute inset-0 z-0 pointer-events-none bg-[url('/gradient-3.jpg')] bg-cover bg-center bg-no-repeat transition-transform transition-duration-[2000ms] ease-out ${
             heroVisible ? "scale-100" : "scale-110"
           }`}
         />
@@ -373,35 +373,35 @@ const Index = () => {
             {[
               {
                 name: "Wheat",
-                img: "public/wheat.jpg",
+                img: "/wheat.jpg",
               },
               {
                 name: "Rice",
-                img: "public/Rice.webp",
+                img: "/Rice.webp",
               },
               {
                 name: "Corn",
-                img: "public/Corn.webp",
+                img: "/Corn.webp",
               },
               {
                 name: "Tomato",
-                img: "public/tomato.jpeg",
+                img: "/tomato.jpeg",
               },
               {
                 name: "Potato",
-                img: "public/potatoes.webp",
+                img: "/potatoes.webp",
               },
               {
                 name: "Cotton",
-                img: "public/Cotton.webp",
+                img: "/Cotton.webp",
               },
               {
                 name: "Sugarcane",
-                img: "public/Sugarcane.webp",
+                img: "/Sugarcane.webp",
               },
               {
                 name: "Mustard",
-                img: "public/Mustard.jpg",
+                img: "/Mustard.jpg",
               },
             ].map((crop) => (
               <div
@@ -515,8 +515,8 @@ const Index = () => {
 
       {/* Testimonials */}
       <section className="py-24 relative">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(800px_400px_at_20%_10%,theme(colors.primary/10),transparent_60%)]" />
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(800px_400px_at_80%_90%,theme(colors.secondary/10),transparent_60%)]" />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(800px_400px_at_20%_10%,rgba(59,130,246,0.1),transparent_60%)]" />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(800px_400px_at_80%_90%,rgba(16,185,129,0.1),transparent_60%)]" />
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
             <h2 className="text-4xl font-bold mb-3">Loved by Farmers</h2>
