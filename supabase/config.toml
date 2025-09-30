@@ -1,0 +1,10 @@
+project_id = "njapjtcpkzlkcbyinaiw"
+
+[functions.get-weather]
+verify_jwt = false
+
+[functions.irrigation-advisor]
+verify_jwt = false
+
+[functions.plant-advisor]
+verify_jwt = false
