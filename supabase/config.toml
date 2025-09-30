@@ -8,3 +8,6 @@ verify_jwt = false
 
 [functions.plant-advisor]
 verify_jwt = false
+
+[functions.crop-identifier]
+verify_jwt = false

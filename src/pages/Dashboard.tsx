@@ -7,6 +7,7 @@ import { Loader2, LogOut } from "lucide-react";
 import WeatherWidget from "@/components/WeatherWidget";
 import IrrigationWidget from "@/components/IrrigationWidget";
 import AIAdvisor from "@/components/AIAdvisor";
+import CropIdentifier from "@/components/CropIdentifier";
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(true);
@@ -76,6 +77,7 @@ const Dashboard = () => {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mb-6">
           <WeatherWidget />
           <IrrigationWidget />
+          <CropIdentifier />
         </div>
 
         <div className="mt-6">
